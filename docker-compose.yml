@@ -1,13 +1,39 @@
 version: '3.8'
 
 services:
+  postgres:
+    image: postgres:15
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: keycloak
+      POSTGRES_USER: keycloak
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+
   keycloak:
     build:
       context: .
       dockerfile: Dockerfile
-    command: start-dev
+    # Running in production mode (start)
+    command: start
     environment:
-      - KC_BOOTSTRAP_ADMIN_USERNAME=admin
-      - KC_BOOTSTRAP_ADMIN_PASSWORD=admin
+      KC_DB: postgres
+      KC_DB_URL: jdbc:postgresql://postgres:5432/keycloak
+      KC_DB_USERNAME: keycloak
+      KC_DB_PASSWORD: password
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: admin
+      # Enable HTTP (turns off the strict HTTPS requirement)
+      KC_HTTP_ENABLED: 'true'
+      # Disable strict hostname checking so it works locally on localhost/IP
+      KC_HOSTNAME_STRICT: 'false'
+      KC_HOSTNAME_STRICT_HTTPS: 'false'
     ports:
       - "8080:8080"
+    depends_on:
+      - postgres
+
+volumes:
+  postgres_data:
