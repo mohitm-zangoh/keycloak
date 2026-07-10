@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  keycloak:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: start-dev
+    environment:
+      - KC_BOOTSTRAP_ADMIN_USERNAME=admin
+      - KC_BOOTSTRAP_ADMIN_PASSWORD=admin
+    ports:
+      - "8080:8080"
