@@ -30,8 +30,14 @@ services:
       # Disable strict hostname checking so it works locally on localhost/IP
       KC_HOSTNAME_STRICT: 'false'
       KC_HOSTNAME_STRICT_HTTPS: 'false'
+      # Disable theme caching for development
+      KC_SPI_THEME_STATIC_MAX_AGE: '-1'
+      KC_SPI_THEME_CACHE_THEMES: 'false'
+      KC_SPI_THEME_CACHE_TEMPLATES: 'false'
     ports:
       - "8080:8080"
+    volumes:
+      - ./themes:/opt/keycloak/themes
     depends_on:
       - postgres
 

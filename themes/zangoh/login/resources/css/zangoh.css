@@ -1,0 +1,294 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --pf-v5-global--FontFamily: 'Inter', sans-serif;
+  --pf-v5-global--BackgroundColor--100: #ffffff;
+  --pf-v5-global--Color--100: #111111;
+  --pf-v5-global--primary-color--100: #000000;
+  --pf-v5-global--active-color--100: #333333;
+}
+
+body {
+  font-family: 'Inter', sans-serif !important;
+  background-color: #fafafa !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+.pf-v5-c-login {
+  background-color: transparent !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+  min-height: 100vh !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Reset PatternFly grid layout and make it a simple flex column */
+.pf-v5-c-login__container {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  background-color: transparent !important;
+  max-width: 450px !important;
+  width: 100% !important;
+  grid-template-areas: none !important;
+  grid-template-columns: none !important;
+  padding: 0 !important;
+}
+
+.pf-v5-c-login__header {
+  margin-bottom: 30px;
+  text-align: center;
+  width: 100%;
+}
+
+.zangoh-logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* Fix squished logos */
+.zangoh-logo {
+  height: 32px !important;
+  width: auto !important;
+  flex-shrink: 0 !important;
+}
+
+.zangoh-name {
+  height: 24px !important;
+  width: auto !important;
+  flex-shrink: 0 !important;
+}
+
+/* This is the actual white card that contains the form */
+.pf-v5-c-login__main {
+  background-color: #ffffff !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+  padding: 40px !important;
+  width: 100%;
+}
+
+.pf-v5-c-button.pf-m-primary {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border-radius: 30px !important;
+  padding: 12px 24px !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease !important;
+  border: none !important;
+  width: 100% !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Match exact specificity of PatternFly to kill the border pseudo-element */
+.pf-v5-c-button.pf-m-primary::after,
+.pf-v5-c-button.pf-m-primary::before,
+.pf-v5-c-button::after,
+.pf-v5-c-button::before {
+  display: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.pf-v5-c-button.pf-m-primary:hover {
+  background-color: #333333 !important;
+  transform: translateY(-1px);
+}
+
+/* Nuke any lines from the wrappers */
+.pf-v5-c-form__actions,
+.pf-v5-c-form__group,
+.pf-v5-c-form,
+.pf-v5-c-login__main-footer,
+.pf-v5-c-login__main-footer-band {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.pf-v5-c-login__main-footer-band::before,
+.pf-v5-c-login__main-footer-band::after {
+  display: none !important;
+}
+
+/* Input fields base styling */
+.pf-v5-c-form-control {
+  background-color: #ffffff !important;
+  border-radius: 8px !important;
+  border: 1px solid #d0d0d0 !important;
+  padding: 8px 12px !important; /* Decreased height */
+  font-family: 'Inter', sans-serif !important;
+  color: #111111 !important;
+  box-shadow: none !important;
+  outline: none !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+/* Remove PatternFly's pseudo-element borders from inputs */
+.pf-v5-c-form-control::before,
+.pf-v5-c-form-control::after {
+  display: none !important;
+}
+
+.pf-v5-c-form-control:focus,
+.pf-v5-c-form-control:focus-visible {
+  border-color: #111111 !important;
+  box-shadow: 0 0 0 1px #111111 !important;
+  outline: none !important;
+}
+
+/* The actual text input is nested inside the span. Remove its browser outline. */
+.pf-v5-c-form-control input {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100% !important;
+  color: inherit !important;
+  font-family: inherit !important;
+}
+
+.pf-v5-c-form-control input:focus,
+.pf-v5-c-form-control input:focus-visible {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Fix Input Group (Password field with eye button) */
+.pf-v5-c-input-group {
+  display: flex !important;
+  border-radius: 8px !important;
+  border: 1px solid #d0d0d0 !important;
+  background: #ffffff !important;
+  transition: all 0.2s ease !important;
+}
+
+.pf-v5-c-input-group:focus-within {
+  border-color: #111111 !important;
+  box-shadow: 0 0 0 1px #111111 !important;
+  outline: none !important;
+}
+
+.pf-v5-c-input-group .pf-v5-c-form-control:focus,
+.pf-v5-c-input-group .pf-v5-c-form-control:focus-visible {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.pf-v5-c-input-group .pf-v5-c-form-control,
+.pf-v5-c-input-group .pf-v5-c-button.pf-m-control {
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+.pf-v5-c-input-group .pf-v5-c-button.pf-m-control {
+  padding: 0 16px !important;
+  color: #666666 !important;
+  cursor: pointer;
+}
+
+.pf-v5-c-button.pf-m-control::after,
+.pf-v5-c-button.pf-m-control::before {
+  display: none !important;
+}
+
+.pf-v5-c-form__label {
+  font-weight: 500 !important;
+  font-size: 0.9rem !important;
+  color: #444444 !important;
+  margin-bottom: 6px !important;
+  display: inline-block !important;
+}
+
+#kc-page-title {
+  font-weight: 600 !important;
+  font-size: 1.5rem !important;
+  color: #111111 !important;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Fix Social Login Buttons */
+#kc-social-providers {
+  margin-top: 24px !important;
+  width: 100%;
+}
+
+#kc-social-providers ul {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+#kc-social-providers ul li {
+  padding-bottom: 0 !important;
+}
+
+#kc-social-providers ul li a {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 12px !important;
+  border: 1px solid #e0e0e0 !important;
+  border-radius: 30px !important;
+  padding: 10px 24px !important;
+  color: #111111 !important;
+  text-decoration: none !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease !important;
+  width: 100% !important;
+  box-sizing: border-box;
+  background-color: transparent !important;
+  outline: none !important;
+}
+
+/* Hide PatternFly's pseudo-element borders that cause the rectangular black box */
+#kc-social-providers ul li a::after,
+#kc-social-providers ul li a::before {
+  display: none !important;
+}
+
+#kc-social-providers ul li a:hover {
+  background-color: #f5f5f5 !important;
+}
+
+/* Restrict the size of the huge social icons */
+#kc-social-providers ul li a svg,
+#kc-social-providers ul li a img {
+  width: 24px !important;
+  height: 24px !important;
+  max-width: 24px !important;
+  max-height: 24px !important;
+  flex-shrink: 0 !important;
+}
+
+#kc-social-providers ul li a span {
+  margin: 0 !important;
+  flex-grow: 0 !important;
+}
+
+/* Ensure the divider text looks clean */
+.pf-v5-c-login__main-footer-band-item {
+  text-align: center;
+  color: #666;
+  font-size: 0.85rem;
+  margin-bottom: 16px;
+}
