@@ -16,8 +16,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    # Running in production mode (start)
-    command: start
+    # Running in production mode (start) and auto-importing realm if it doesn't exist
+    command: start --import-realm
     environment:
       KC_DB: postgres
       KC_DB_URL: jdbc:postgresql://postgres:5432/keycloak
@@ -40,6 +40,7 @@ services:
       - "8080:8080"
     volumes:
       - ./themes:/opt/keycloak/themes
+      - ./realm-export-with-users.json:/opt/keycloak/data/import/realm.json
     depends_on:
       - postgres
 
